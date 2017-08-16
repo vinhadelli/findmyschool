@@ -13,8 +13,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button loginBtn = (Button) findViewById(R.id.loginBtn);
-        loginBtn.setOnClickListener(this);
+//        Button loginBtn = (Button) findViewById(R.id.loginBtn);
+//        loginBtn.setOnClickListener(this);
     }
 
 //    @Override
@@ -24,6 +24,6 @@ public class LoginActivity extends AppCompatActivity {
 //    }
 
     public void passToMenu(View view){
-        startActivity(new Intent(this, MenuActivity.class));
+        startActivity(new Intent(this, MenuTesteActivity.class));
     }
 }
