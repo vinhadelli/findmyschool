@@ -4,4 +4,6 @@
     <!--Login activity-->
     <string name="email_input_hint">Email</string>
     <string name="password_input_hint">Password</string>
+    <!--Menu Activity-->
+    <string name="school_search_hint">Ache sua Escola</string>
 </resources>
