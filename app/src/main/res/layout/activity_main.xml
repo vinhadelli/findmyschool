@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     tools:context="nathanelucas.findmyschool.MainActivity"
     android:orientation="vertical"
-    android:weightSum="1"
-    android:onClick="passToLogin">
+    android:weightSum="1">
 
     <ImageView
         android:id="@+id/logoIcon"

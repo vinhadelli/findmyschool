@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onStart() {
+        super.onStart();
         initAnimation();
     }
 
@@ -31,10 +31,26 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.logoIcon).startAnimation(anim01);
 
         anim02.setStartOffset(1600);
+        anim02.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                passToLogin();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
         findViewById(R.id.logoName).startAnimation(anim02);
     }
 
-    public void passToLogin(View view){
+    public void passToLogin(){
         startActivity(new Intent(this, LoginActivity.class));
     }
 }

@@ -15,18 +15,18 @@
         android:layout_marginTop="34dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"/>
+        android:layout_marginBottom="25dp"
+        android:contentDescription="@string/image_login_description"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_below="@+id/imageView"
-        android:id="@+id/linearLayout"
-        android:layout_marginBottom="20dp">
+        android:id="@+id/linearLayout">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/emailField"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
@@ -35,7 +35,7 @@
             android:layout_weight="1"/>
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/passwordField"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -45,35 +45,30 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="ok"
         android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/imageView"/>
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ok"
+        android:layout_toEndOf="@+id/imageView"
+        android:text="cancel" />
+
+    <Button
+        android:id="@+id/create_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/cancel"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:layout_below="@+id/linearLayout">
+        android:text="Create new"
+        android:onClick="createUser"/>
 
-        <ImageButton
-            android:id="@+id/facebookBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/facebook_btn"/>
-
-        <ImageButton
-            android:id="@+id/googlePlusBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/gplus_btn" />
-
-        <ImageButton
-            android:id="@+id/twitterBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/twitter_btn"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
 
 </RelativeLayout>

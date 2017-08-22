@@ -4,4 +4,5 @@
     <!--Login activity-->
     <string name="email_input_hint">Email</string>
     <string name="password_input_hint">Password</string>
+    <string name="image_login_description">Default image login</string>
 </resources>
