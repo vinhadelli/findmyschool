@@ -50,16 +50,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
-        android:text="ok"
+        android:text="@string/sign_in"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/imageView"/>
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ok"
-        android:layout_toEndOf="@+id/imageView"
-        android:text="cancel" />
+        android:layout_toStartOf="@+id/imageView"
+        android:onClick="signInFirebase"/>
 
     <Button
         android:id="@+id/create_new"
@@ -67,8 +61,17 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/cancel"
         android:layout_centerHorizontal="true"
-        android:text="Create new"
-        android:onClick="createUser"/>
+        android:text="@string/sign_up"
+        android:onClick="createUserFirebase"/>
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ok"
+        android:layout_toEndOf="@+id/imageView"
+        android:text="@string/exit_btn" />
+
 
 
 </RelativeLayout>

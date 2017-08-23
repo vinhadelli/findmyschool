@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void createUser(View view){
+    public void createUserFirebase(View view){
         EditText emailField = (EditText) findViewById(R.id.emailField);
         EditText passwordField = (EditText) findViewById(R.id.passwordField);
         String email = emailField.getText().toString();
@@ -62,10 +62,29 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>(){
             @Override
             public void onComplete(@NonNull Task<AuthResult> task){
-                Log.d("Salvar mano", "createUserWithEmail: onComplete: " + task.isSuccessful());
+                Log.d("C. user por firebase", "createUserWithEmail: onComplete: " + task.isSuccessful());
 
                 if(!task.isSuccessful()){
-                    Toast.makeText(LoginActivity.this, "Erro", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Não foi possível criar o usuário", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    public void signInFirebase(View view){
+        EditText emailField = (EditText) findViewById(R.id.emailField);
+        EditText passwordField = (EditText) findViewById(R.id.passwordField);
+        String email = emailField.getText().toString();
+        String password = passwordField.getText().toString();
+
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>(){
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task){
+                Log.d("Login por firebase", "onComplete: " + task.isSuccessful());
+
+                if(!task.isSuccessful()){
+                    Log.w("Erro login", "onComplete: ", task.getException());
+                    Toast.makeText(LoginActivity.this, "Não foi possível executar loggin", Toast.LENGTH_SHORT).show();
                 }
             }
         });
