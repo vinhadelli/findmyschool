@@ -9,4 +9,11 @@
     <string name="sign_up">Sign up</string>
     <string name="exit_btn">Exit</string>
     <string name="erro_create_email">Não foi possível criar novo usuário</string>
+
+    <!--User Information-->
+    <string name="user_email">emaildeteste@nathanelucas.com</string>
+
+    <!--Geral-->
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_menu_teste">Teste</string>
 </resources>

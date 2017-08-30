@@ -64,7 +64,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task){
                 Log.d("C. user por firebase", "createUserWithEmail: onComplete: " + task.isSuccessful());
 
-                if(!task.isSuccessful()){
+                if(task.isSuccessful()){
+                    Toast.makeText(LoginActivity.this, "Usuário criado com sucesso!", Toast.LENGTH_SHORT).show();
+                }
+                else{
                     Toast.makeText(LoginActivity.this, "Não foi possível criar o usuário", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -82,7 +85,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task){
                 Log.d("Login por firebase", "onComplete: " + task.isSuccessful());
 
-                if(!task.isSuccessful()){
+                if(task.isSuccessful()){
+                    Toast.makeText(LoginActivity.this, "Login efetuado com sucesso", Toast.LENGTH_SHORT).show();
+                }
+                else{
                     Log.w("Erro login", "onComplete: ", task.getException());
                     Toast.makeText(LoginActivity.this, "Não foi possível executar loggin", Toast.LENGTH_SHORT).show();
                 }
