@@ -4,6 +4,7 @@
     <!--Login activity-->
     <string name="email_input_hint">Email</string>
     <string name="password_input_hint">Password</string>
+    <string name="password_confirm_hint">Confirm Password</string>
     <string name="image_login_description">Default image login</string>
     <string name="sign_in">Sign in</string>
     <string name="sign_up">Sign up</string>
@@ -16,4 +17,34 @@
     <!--Geral-->
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu_teste">Teste</string>
+    <string-array name="estados_brasil">
+        <item>AL</item>
+        <item>AP</item>
+        <item>AM</item>
+        <item>BA</item>
+        <item>CE</item>
+        <item>DF</item>
+        <item>ES</item>
+        <item>GO</item>
+        <item>MA</item>
+        <item>MT</item>
+        <item>MS</item>
+        <item>MG</item>
+        <item>PA</item>
+        <item>PB</item>
+        <item>PR</item>
+        <item>PE</item>
+        <item>PI</item>
+        <item>RJ</item>
+        <item>RN</item>
+        <item>RS</item>
+        <item>RO</item>
+        <item>RR</item>
+        <item>SC</item>
+        <item>SP</item>
+        <item>SE</item>
+        <item>TO</item>
+    </string-array>
+    <string name="busca_escola">Procure sua Escola!</string>
+    <string name="busca_estado">Selecione um Estado:</string>
 </resources>

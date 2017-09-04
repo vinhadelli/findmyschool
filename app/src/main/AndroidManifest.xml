@@ -13,24 +13,28 @@
         android:allowBackup="true"
         android:icon="@drawable/icon_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icon_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:noHistory="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Activities.MainActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+
+
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".Activities.LoginActivity" />
 
         <service
             android:name=".RetrofitService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".Activities.SignupActivity" />
+        <activity android:name=".Activities.ListaActivity"/>
+        <activity android:name=".Activities.BuscaActivity"></activity>
     </application>
 
 </manifest>
