@@ -32,7 +32,7 @@
             android:ems="10"
             android:inputType="textEmailAddress"
             android:hint="@string/email_input_hint"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <EditText
             android:id="@+id/passwordField"
@@ -46,32 +46,31 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/ok"
+        android:id="@+id/sign_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
         android:text="@string/sign_in"
-        android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/imageView"
-        android:onClick="signInFirebase"/>
+        android:layout_below="@+id/sign_google"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="16dp" />
 
     <Button
-        android:id="@+id/create_new"
+        android:id="@+id/create_user_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/cancel"
-        android:layout_centerHorizontal="true"
         android:text="@string/sign_up"
-        android:onClick="createUserFirebase"/>
+        android:layout_alignBaseline="@+id/sign_email"
+        android:layout_alignBottom="@+id/sign_email"
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/cancel"
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ok"
-        android:layout_toEndOf="@+id/imageView"
-        android:text="@string/exit_btn" />
-
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignStart="@+id/create_user_email"
+        android:layout_marginTop="13dp" />
 
 
 </RelativeLayout>
