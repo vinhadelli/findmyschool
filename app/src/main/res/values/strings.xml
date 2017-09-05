@@ -45,6 +45,11 @@
         <item>SE</item>
         <item>TO</item>
     </string-array>
+    <string-array name="escolhas_ensino">
+        <item>Tanto Faz</item>
+        <item>Sim</item>
+        <item>Não</item>
+    </string-array>
     <string name="busca_escola">Procure sua Escola!</string>
     <string name="busca_estado">Selecione um Estado:</string>
 </resources>

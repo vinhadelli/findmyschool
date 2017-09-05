@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import nathanelucas.findmyschool.MyAdapter;
 import nathanelucas.findmyschool.R;
@@ -25,6 +26,9 @@ public class ListaActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private RetrofitService service;
+    private String creche;
+    private String fundamental;
+    private String medio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +39,17 @@ public class ListaActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
 
-        String nome = null;
+        //String nome = null;
         String estado = null;
+
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            nome = extras.getString("nome");
+            //nome = extras.getString("nome");
             estado = extras.getString("estado");
+            creche = extras.getString("creche");
+            fundamental = extras.getString("fundamental");
+            medio = extras.getString("medio");
             //service = (RetrofitService) extras.get("retrofit");
             //The key argument here must match that used in the other activity
         }
@@ -54,7 +62,7 @@ public class ListaActivity extends AppCompatActivity {
 
         service = retrofit.create(RetrofitService.class);
 
-        Call<List<Escola>> getEscolas = service.getEscolas(nome, estado);
+        Call<List<Escola>> getEscolas = service.getEscolas(estado, 1000);
 
         getEscolas.enqueue(new retrofit2.Callback<List<Escola>>() {
         @Override
@@ -62,9 +70,45 @@ public class ListaActivity extends AppCompatActivity {
         {
             if(response.isSuccessful()){
                 List<Escola> e = new ArrayList<Escola>();
-                for (Escola escola : response.body()){
-                    e.add(escola);
+                if (Objects.equals(creche, "S") && Objects.equals(fundamental, "S") && Objects.equals(medio, "S"))
+                {
+                    for (Escola escola : response.body()){
+                        //Log.e("RESPSOTA","Nome: "+escola.getNome()+" Creche: "+ escola.getInfraestrutura().getTemCreche()+ creche+" Fundamental: "+escola.getInfraestrutura().getTemEnsinoFundamental()+fundamental+" Medio: "+escola.getInfraestrutura().getTemEnsinoMedio()+medio);
+                        if(Objects.equals(escola.getInfraestrutura().getTemCreche(), creche) && Objects.equals(escola.getInfraestrutura().getTemEnsinoFundamental(), fundamental) && Objects.equals(escola.getInfraestrutura().getTemEnsinoMedio(), medio))
+                            e.add(escola);
+                    }
                 }
+                else if (Objects.equals(creche, "S") && Objects.equals(fundamental, "S"))
+                {
+                    for (Escola escola : response.body()){
+                        //Log.e("RESPSOTA","Nome: "+escola.getNome()+" Creche: "+ escola.getInfraestrutura().getTemCreche()+ creche+" Fundamental: "+escola.getInfraestrutura().getTemEnsinoFundamental()+fundamental+" Medio: "+escola.getInfraestrutura().getTemEnsinoMedio()+medio);
+                        if(Objects.equals(escola.getInfraestrutura().getTemCreche(), creche) && Objects.equals(escola.getInfraestrutura().getTemEnsinoFundamental(), fundamental))
+                            e.add(escola);
+                    }
+                }
+                else if (Objects.equals(medio, "S") && Objects.equals(fundamental, "S"))
+                {
+                    for (Escola escola : response.body()){
+                        //Log.e("RESPSOTA","Nome: "+escola.getNome()+" Creche: "+ escola.getInfraestrutura().getTemCreche()+ creche+" Fundamental: "+escola.getInfraestrutura().getTemEnsinoFundamental()+fundamental+" Medio: "+escola.getInfraestrutura().getTemEnsinoMedio()+medio);
+                        if(Objects.equals(escola.getInfraestrutura().getTemEnsinoFundamental(), fundamental) && Objects.equals(escola.getInfraestrutura().getTemEnsinoMedio(), medio))
+                            e.add(escola);
+                    }
+                }
+                else if (Objects.equals(creche, "S") && Objects.equals(medio, "S"))
+                {
+                    for (Escola escola : response.body()){
+                        //Log.e("RESPSOTA","Nome: "+escola.getNome()+" Creche: "+ escola.getInfraestrutura().getTemCreche()+ creche+" Fundamental: "+escola.getInfraestrutura().getTemEnsinoFundamental()+fundamental+" Medio: "+escola.getInfraestrutura().getTemEnsinoMedio()+medio);
+                        if(Objects.equals(escola.getInfraestrutura().getTemCreche(), creche) && Objects.equals(escola.getInfraestrutura().getTemEnsinoMedio(), medio))
+                            e.add(escola);
+                    }
+                }
+                else{
+                for (Escola escola : response.body()){
+                    //Log.e("RESPSOTA","Nome: "+escola.getNome()+" Creche: "+ escola.getInfraestrutura().getTemCreche()+ creche+" Fundamental: "+escola.getInfraestrutura().getTemEnsinoFundamental()+fundamental+" Medio: "+escola.getInfraestrutura().getTemEnsinoMedio()+medio);
+                    if(Objects.equals(escola.getInfraestrutura().getTemCreche(), creche) || Objects.equals(escola.getInfraestrutura().getTemEnsinoFundamental(), fundamental) || Objects.equals(escola.getInfraestrutura().getTemEnsinoMedio(), medio))
+                        e.add(escola);
+                }}
+
                 recyclerView.setAdapter(new MyAdapter(e));
 
                 Log.e("RESPOSTA","Esta no onResponse!");

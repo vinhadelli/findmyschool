@@ -6,6 +6,8 @@ package nathanelucas.findmyschool;
 
 import java.util.List;
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import nathanelucas.findmyschool.Activities.EscolaActivity;
+import nathanelucas.findmyschool.Activities.ListaActivity;
 import nathanelucas.findmyschool.Resposta_API.Escola;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
@@ -71,7 +75,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         // - replace the contents of the view with that element
         final String escola = escolas.get(position).getNome();
         final String endereco = escolas.get(position).getEndereco().getBairro();
-        if (escola.isEmpty())
+        if (escolas.isEmpty())
         {
             holder.txtHeader.setText("Não há Resultados!");
         }
@@ -80,7 +84,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             holder.txtHeader.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    remove(position);
+                    //remove(position);
+                    passToEscola(v, position);
                 }
             });
 
@@ -92,6 +97,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
         return escolas.size();
+    }
+
+    public void passToEscola(View view, int position){
+        Intent i = new Intent(view.getContext(), EscolaActivity.class);
+        i.putExtra("nome", escolas.get(position).getNome());
+        i.putExtra("bairro", escolas.get(position).getEndereco().getBairro());
+        i.putExtra("municipio", escolas.get(position).getEndereco().getMunicipio());
+        i.putExtra("cep", escolas.get(position).getEndereco().getCep());
+        i.putExtra("telefone", escolas.get(position).getTelefone());
+        i.putExtra("categoria", escolas.get(position).getCategoriaEscolaPrivada());
+        view.getContext().startActivity(i);
     }
 
 }

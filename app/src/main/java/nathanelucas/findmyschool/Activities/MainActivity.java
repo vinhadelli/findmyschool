@@ -50,6 +50,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void passToLogin(){
-        startActivity(new Intent(this, LoginActivity.class));
+        finish();startActivity(new Intent(this, LoginActivity.class));
     }
 }

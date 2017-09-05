@@ -1,10 +1,13 @@
 package nathanelucas.findmyschool.Resposta_API;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by nathan.vinhadelli on 30/08/2017.
  */
 
-public class Escola {
+public class Escola{
     private String categoriaEscolaPrivada;
     private String cnpj;
     private int codEscola;
@@ -21,9 +24,11 @@ public class Escola {
     private String rede;
     private String situacaoFuncionamento;
     private String telefone;
-    
 
-    public void setCategoriaEscolaPrivada(String categoriaEscolaPrivada) {
+	private int mData;
+
+
+	public void setCategoriaEscolaPrivada(String categoriaEscolaPrivada) {
 		this.categoriaEscolaPrivada = categoriaEscolaPrivada;
 	}
 
@@ -119,8 +124,5 @@ public class Escola {
     public int getQtdSalasUtilizadas() {
 		return qtdSalasUtilizadas;
 	}
-    
-
-
 
 }

@@ -23,7 +23,10 @@ public interface RetrofitService {
     Call<List<Escola>> getEscolas(@Query("nome") String nome);
 
     @GET("rest/escolas")
-    Call<List<Escola>> getEscolas(@Query("nome") String nome, @Query("uf") String uf);
+    Call<List<Escola>> getEscolas(@Query("nome") String nome, @Query("uf") String uf,@Query("quantidadeDeItens") int quantidadeDeItens);
+
+    @GET("rest/escolas")
+    Call<List<Escola>> getEscolas(@Query("uf") String uf,@Query("quantidadeDeItens") int quantidadeDeItens);
 
     @GET ("rest/escolas/{codEscola}/avaliacoes")
     Call<List<Escola>> getAvaliacoes(@Path("codEscola") int codEscola);
