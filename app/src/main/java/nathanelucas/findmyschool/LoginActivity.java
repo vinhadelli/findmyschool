@@ -16,6 +16,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
@@ -52,7 +53,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         //definindo clickListeners
         findViewById(signEmail).setOnClickListener(this);
-        findViewById(signGoogle).setOnClickListener(this);
+        SignInButton gBtn = (SignInButton) findViewById(signGoogle);
+        gBtn.setOnClickListener(this);
+        gBtn.setTextAlignment(SignInButton.TEXT_ALIGNMENT_CENTER);
         findViewById(createUserEmail).setOnClickListener(this);
 
         //inicializacao do firebase
@@ -89,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         mAuth.addAuthStateListener(mAuthListener);
 
         if(mAuth.getCurrentUser() != null){
-            //comeca a proxima activity aqui, implementar depois
+            //Inicia a proxima atividade aqui, chama a tela de lista eu acho
         }
     }
 
@@ -155,6 +158,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 // Google Sign In failed, update UI appropriately
                 // [START_EXCLUDE]
                 //colocar tratamento pra error no login
+                Toast.makeText(this, "Não foi possível executar login", Toast.LENGTH_SHORT).show();
                 // [END_EXCLUDE]
             }
         }
@@ -164,7 +168,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d("Login pelo Google", "firebaseAuthWithGoogle:" + acct.getId());
         // [START_EXCLUDE silent]
-//        showProgressDialog(); Vê essa parada aqui depois
+//        showProgressDialog(); // Aqui vai aquela telinha com a bolinha girando pra mostrar carregamento
         // [END_EXCLUDE]
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
@@ -175,18 +179,18 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("Login G Sucedido", "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-//                            updateUI(user); Ver essa parada aqui da resposta depois
+//                            FirebaseUser user = mAuth.getCurrentUser(); caso precise levar as informações do usuario
+//                            updateUI(user); Chamar a proxima tela aqui
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Login g fracasso", "signInWithCredential:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, "Não foi possivel executar login",
                                     Toast.LENGTH_SHORT).show();
-//                            updateUI(null); tem que dar um jeito nesse bendito metodo
+//                            updateUI(null); Uma tela de falha de login aqui depois
                         }
 
                         // [START_EXCLUDE]
-                        //hideProgressDialog(); outro metodo que tem que dar um jeito
+                        //hideProgressDialog(); Aqui é onde se encerra aquela tela com a bolinha de carregamento girando
                         // [END_EXCLUDE]
                     }
                 });
@@ -198,6 +202,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+    //Exigencia da API do google
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         Log.d("Erro de conexao", "onConnectionFailed:" + connectionResult);
