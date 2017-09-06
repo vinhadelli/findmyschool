@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_weight="0.3"
-            android:text="Creche"
+            android:text="@string/busca_creche"
             android:textColor="@android:color/black"
             android:theme="@style/checkBoxStyle" />
 
@@ -54,8 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
-            android:backgroundTint="@color/colorAccent"
-            android:text="Ensino Fundamental"
+            android:text="@string/busca_fundamental"
             android:textColor="@android:color/black"
             android:theme="@style/checkBoxStyle" />
 
@@ -64,25 +63,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:shadowColor="@color/colorPrimary"
-            android:text="Ensino Médio"
+            android:text="@string/busca_medio"
             android:textColor="@android:color/black"
             android:theme="@style/checkBoxStyle" />
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/lista_btn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="50dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/lista_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:onClick="buscarLista"
-            android:text="Buscar" />
-    </LinearLayout>
+        android:onClick="buscarLista"
+        android:text="@string/busca_btn" />
 
 </LinearLayout>

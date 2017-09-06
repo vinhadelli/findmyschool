@@ -62,7 +62,7 @@ public class ListaActivity extends AppCompatActivity {
 
         service = retrofit.create(RetrofitService.class);
 
-        Call<List<Escola>> getEscolas = service.getEscolas(estado, 1000);
+        Call<List<Escola>> getEscolas = service.getEscolas(estado, 700);
 
         getEscolas.enqueue(new retrofit2.Callback<List<Escola>>() {
         @Override
