@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool;
+package nathanelucas.findmyschool.Activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -27,6 +27,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import nathanelucas.findmyschool.R;
+
+import nathanelucas.findmyschool.Activities.BuscaActivity;
 
 import static android.R.attr.onClick;
 
@@ -106,21 +109,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     //metodos do login com email e senha
     public void createUserFirebase(){
-        EditText emailField = (EditText) findViewById(R.id.emailField);
-        EditText passwordField = (EditText) findViewById(R.id.passwordField);
-        String email = emailField.getText().toString();
-        String password = passwordField.getText().toString();
-
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>(){
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task){
-                Log.d("C. user por firebase", "createUserWithEmail: onComplete: " + task.isSuccessful());
-
-                if(!task.isSuccessful()){
-                    Toast.makeText(LoginActivity.this, "Não foi possível criar o usuário", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        startActivity(new Intent(LoginActivity.this, SignupActivity.class));
     }
 
     public void signInFirebase(){
@@ -134,7 +123,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             public void onComplete(@NonNull Task<AuthResult> task){
                 Log.d("Login por firebase", "onComplete: " + task.isSuccessful());
 
-                if(!task.isSuccessful()){
+                if(task.isSuccessful()) {
+                    finish();
+                    startActivity(new Intent(LoginActivity.this, BuscaActivity.class));
+                }
+
+                else{
                     Log.w("Erro login", "onComplete: ", task.getException());
                     Toast.makeText(LoginActivity.this, "Não foi possível executar loggin", Toast.LENGTH_SHORT).show();
                 }
@@ -180,6 +174,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("Login G Sucedido", "signInWithCredential:success");
 //                            FirebaseUser user = mAuth.getCurrentUser(); caso precise levar as informações do usuario
+                            finish();
+                            startActivity(new Intent(LoginActivity.this, BuscaActivity.class));
 //                            updateUI(user); Chamar a proxima tela aqui
                         } else {
                             // If sign in fails, display a message to the user.

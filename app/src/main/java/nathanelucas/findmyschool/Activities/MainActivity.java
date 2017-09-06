@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+
+
 import nathanelucas.findmyschool.R;
 
 public class MainActivity extends AppCompatActivity {
