@@ -6,10 +6,13 @@
     <string name="password_input_hint">Password</string>
     <string name="password_confirm_hint">Confirm Password</string>
     <string name="image_login_description">Default image login</string>
-    <string name="sign_in">Sign in</string>
-    <string name="sign_up">Sign up</string>
-    <string name="exit_btn">Exit</string>
+    <string name="sign_in">Entrar com email</string>
+    <string name="sign_up">Criar Usuario com email</string>
     <string name="erro_create_email">Não foi possível criar novo usuário</string>
+    <!--coisas do facebook sdk-->
+    <string name="facebook_app_id">115818592449584</string>
+    <string name="fb_login_protocol_scheme">fb115818592449584</string>
+
 
     <!--User Information-->
     <string name="user_email">emaildeteste@nathanelucas.com</string>
