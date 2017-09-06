@@ -23,4 +23,5 @@
     string in this file.
     -->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBqcyTxJRsH7JCEr3FpG_k9v8iIGgN21lQ</string>
+    <!--<string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDGKWe1q7yoweXG-unNUydPC2g_FbvTXYE</string>-->
 </resources>

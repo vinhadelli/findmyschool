@@ -31,6 +31,8 @@ import nathanelucas.findmyschool.R;
 
 import nathanelucas.findmyschool.Activities.BuscaActivity;
 
+import nathanelucas.findmyschool.R;
+
 import static android.R.attr.onClick;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
@@ -152,7 +154,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 // Google Sign In failed, update UI appropriately
                 // [START_EXCLUDE]
                 //colocar tratamento pra error no login
-                Toast.makeText(this, "Não foi possível executar login", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Não foi possível executar login123", Toast.LENGTH_SHORT).show();
                 // [END_EXCLUDE]
             }
         }
@@ -177,6 +179,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             finish();
                             startActivity(new Intent(LoginActivity.this, BuscaActivity.class));
 //                            updateUI(user); Chamar a proxima tela aqui
+                            Intent i = new Intent(getApplicationContext(), BuscaActivity.class);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Login g fracasso", "signInWithCredential:failure", task.getException());

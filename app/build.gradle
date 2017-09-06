@@ -7,6 +7,12 @@ android {
             keyPassword '123456'
             storePassword '123456'
         }
+        config {
+            keyAlias 'chave'
+            keyPassword 'android'
+            storeFile file('C:/Users/1512130024/.android/debug.keystore')
+            storePassword 'android'
+        }
     }
     compileSdkVersion 26
     buildToolsVersion '26.0.1'
@@ -34,7 +40,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:26.+'
-//    compile 'com.google.firebase:firebase-auth:10.0.1'
+    //    compile 'com.google.firebase:firebase-auth:10.0.1'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
