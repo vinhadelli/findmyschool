@@ -3,6 +3,7 @@ package nathanelucas.findmyschool.Activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
@@ -10,7 +11,7 @@ import android.view.animation.AnimationUtils;
 
 import nathanelucas.findmyschool.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +26,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initAnimation() {
-        Animation anim01 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
-        Animation anim02 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
-
-
-        findViewById(R.id.logoIcon).startAnimation(anim01);
-
-        anim02.setStartOffset(1600);
-        anim02.setAnimationListener(new Animation.AnimationListener() {
+        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+        anim.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -48,10 +43,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        findViewById(R.id.logoName).startAnimation(anim02);
+
+        findViewById(R.id.logoIcon).startAnimation(anim);
     }
 
     public void passToLogin(){
-        finish();startActivity(new Intent(this, LoginActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
     }
 }
