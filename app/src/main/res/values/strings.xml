@@ -48,16 +48,14 @@
         <item>SE</item>
         <item>TO</item>
     </string-array>
-    <string-array name="escolhas_ensino">
-        <item>Tanto Faz</item>
-        <item>Sim</item>
-        <item>Não</item>
-    </string-array>
     <string name="busca_escola">Procure sua Escola!</string>
     <string name="busca_estado">Selecione um Estado:</string>
     <string name="busca_creche">Creche</string>
     <string name="busca_fundamental">Ensino Fundamental</string>
     <string name="busca_medio">Ensino Médio</string>
     <string name="busca_btn">Buscar</string>
+    <string name="metodo_text">Escolha o seu metodo de pesquisa!</string>
+    <string name="lista_metodo_btn">Pesquise por Lista!</string>
+    <string name="mapa_metodo_btn">Pesquise pela sua Localização!</string>
 
 </resources>

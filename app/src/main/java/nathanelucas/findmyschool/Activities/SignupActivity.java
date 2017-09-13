@@ -1,5 +1,6 @@
 package nathanelucas.findmyschool.Activities;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,6 +54,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         if(mAuth.getCurrentUser() != null){
             //Inicia a proxima atividade aqui, chama a tela de lista eu acho
+            finish();
+            startActivity(new Intent(SignupActivity.this, BuscaActivity.class));
         }
     }
 

@@ -1,10 +1,14 @@
 package nathanelucas.findmyschool.Activities;
 
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -26,6 +30,7 @@ public class ListaActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
     private RetrofitService service;
+    private ProgressBar progressBar;
     private String creche;
     private String fundamental;
     private String medio;
@@ -38,6 +43,7 @@ public class ListaActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
+        progressBar = (ProgressBar) findViewById(R.id.progress_api);
 
         //String nome = null;
         String estado = null;
@@ -68,6 +74,7 @@ public class ListaActivity extends AppCompatActivity {
         @Override
         public void onResponse(Call<List<Escola>> call, retrofit2.Response<List<Escola>> response)
         {
+            progressBar.setVisibility(View.VISIBLE);
             if(response.isSuccessful()){
                 List<Escola> e = new ArrayList<Escola>();
                 if (Objects.equals(creche, "S") && Objects.equals(fundamental, "S") && Objects.equals(medio, "S"))
@@ -108,18 +115,22 @@ public class ListaActivity extends AppCompatActivity {
                     if(Objects.equals(escola.getInfraestrutura().getTemCreche(), creche) || Objects.equals(escola.getInfraestrutura().getTemEnsinoFundamental(), fundamental) || Objects.equals(escola.getInfraestrutura().getTemEnsinoMedio(), medio))
                         e.add(escola);
                 }}
-
+                progressBar.setVisibility(View.GONE);
                 recyclerView.setAdapter(new MyAdapter(e));
 
                 Log.e("RESPOSTA","Esta no onResponse!");
             }
             else {
                 Log.e("RESPOSTA","ERRO esta no else");
+                Toast.makeText(ListaActivity.this, "Não foi possivel resgatar os dados!",
+                        Toast.LENGTH_SHORT).show();
             }
         }
                 @Override
             public void onFailure(Call<List<Escola>> call, Throwable t){
                     Log.e("RESPOSTA","Esta no onFailure");
+                    Toast.makeText(ListaActivity.this, "A conexão falhou!",
+                            Toast.LENGTH_SHORT).show();
             }
         });
     }

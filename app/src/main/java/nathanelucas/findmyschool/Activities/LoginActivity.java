@@ -68,6 +68,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if(user != null){
                     Log.d("logado", "onAuthStateChanged:signed_in " + user.getUid());
+                    finish();
+                    startActivity(new Intent(LoginActivity.this, MetodoActivity.class));
                 }
                 else{
                     Log.d("Deslogado", "onAuthStateChanged: signed_out ");
@@ -96,6 +98,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         if(mAuth.getCurrentUser() != null){
             //Inicia a proxima atividade aqui, chama a tela de lista eu acho
+            finish();
+            startActivity(new Intent(LoginActivity.this, MetodoActivity.class));
         }
     }
 
@@ -125,7 +129,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
                 if(task.isSuccessful()) {
                     finish();
-                    startActivity(new Intent(LoginActivity.this, BuscaActivity.class));
+                    startActivity(new Intent(LoginActivity.this, MetodoActivity.class));
                 }
 
                 else{
@@ -175,7 +179,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             Log.d("Login G Sucedido", "signInWithCredential:success");
 //                            FirebaseUser user = mAuth.getCurrentUser(); caso precise levar as informações do usuario
                             finish();
-                            startActivity(new Intent(LoginActivity.this, BuscaActivity.class));
+                            startActivity(new Intent(LoginActivity.this, MetodoActivity.class));
 //                            updateUI(user); Chamar a proxima tela aqui
                         } else {
                             // If sign in fails, display a message to the user.

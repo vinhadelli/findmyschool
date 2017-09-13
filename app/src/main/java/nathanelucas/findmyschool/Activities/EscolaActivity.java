@@ -95,7 +95,7 @@ public class EscolaActivity extends AppCompatActivity implements OnMapReadyCallb
         Log.e("LOCALIZAÇÃO","Lat: "+lati+" Longi: "+longi);
 
         mMap.addMarker(new MarkerOptions().position(escola).title(nome));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(escola));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(escola,18));
     }
 
 
