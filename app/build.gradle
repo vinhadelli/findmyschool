@@ -7,6 +7,13 @@ android {
             keyPassword '123456'
             storePassword '123456'
         }
+//        config {
+//            keyAlias 'chave'
+//            keyPassword 'android'
+//            storeFile file('C:/Users/1512130024/.android/debug.keystore')
+//            // isso aqui vai dar merda se trocar de pc
+//            storePassword 'android'
+//        }
     }
     compileSdkVersion 26
     buildToolsVersion '26.0.1'
@@ -31,7 +38,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    //    compile 'com.google.firebase:firebase-auth:10.0.1'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:26.+'
@@ -39,12 +45,23 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
     compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.google.android.gms:play-services-maps:11.0.1'
     compile 'com.google.firebase:firebase-auth:11.0.1'
     compile 'com.google.android.gms:play-services-auth:11.0.1'
-    compile 'com.google.android.gms:play-services-maps:11.0.1'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     testCompile 'junit:junit:4.12'
 }
 
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '25.3.0'
+            }
+        }
+    }
+}
 
 
 apply plugin: 'com.google.gms.google-services'

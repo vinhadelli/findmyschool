@@ -97,6 +97,4 @@ public class EscolaActivity extends AppCompatActivity implements OnMapReadyCallb
         mMap.addMarker(new MarkerOptions().position(escola).title(nome));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(escola,18));
     }
-
-
 }
