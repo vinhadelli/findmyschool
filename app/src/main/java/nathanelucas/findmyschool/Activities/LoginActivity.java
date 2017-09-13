@@ -88,17 +88,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.createAccount:
                 startActivity(new Intent(this, EmailAuthActivity.class));
-                finish();
                 break;
             case R.id.gBtn:
                 startActivity(new Intent(this, GoogleAuthActivity.class));
-                finish();
                 break;
             case R.id.fbBtn:
                 startActivity(new Intent(this, FacebookAuthActivity.class));
-                finish();
                 break;
+        }
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        if(mAuth.getCurrentUser() != null){
+            finish();
         }
     }
 }

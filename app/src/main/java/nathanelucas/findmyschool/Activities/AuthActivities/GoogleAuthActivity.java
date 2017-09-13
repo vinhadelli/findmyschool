@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -18,9 +17,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import nathanelucas.findmyschool.Activities.BuscaActivity;
 import nathanelucas.findmyschool.R;
 
 public class GoogleAuthActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
@@ -55,14 +54,10 @@ public class GoogleAuthActivity extends AppCompatActivity implements GoogleApiCl
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             if (result.isSuccess()) {
-                // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else {
-                // Google Sign In failed, update UI appropriately
-                // [START_EXCLUDE]
-                System.out.println("deu bom");
-                // [END_EXCLUDE]
+                Toast.makeText(this, "@string/falha_na_autenticacao", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -75,18 +70,12 @@ public class GoogleAuthActivity extends AppCompatActivity implements GoogleApiCl
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("Eita 5", "signInWithCredential:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            startActivity(new Intent(GoogleAuthActivity.this, BuscaActivity.class));
+                            finish();
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("eita 6", "signInWithCredential:failure", task.getException());
-                            Toast.makeText(GoogleAuthActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(GoogleAuthActivity.this, "@string/falha_autenticacao", Toast.LENGTH_LONG).show();
+                            finish();
                         }
-
-                        // [START_EXCLUDE]
-                        // [END_EXCLUDE]
                     }
                 });
     }
@@ -98,9 +87,6 @@ public class GoogleAuthActivity extends AppCompatActivity implements GoogleApiCl
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
-        // be available.
-        Log.d("Eita 7", "onConnectionFailed:" + connectionResult);
         Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
     }
 }
