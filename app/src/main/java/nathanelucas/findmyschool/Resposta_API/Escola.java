@@ -1,8 +1,5 @@
 package nathanelucas.findmyschool.Resposta_API;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 /**
  * Created by nathan.vinhadelli on 30/08/2017.
  */

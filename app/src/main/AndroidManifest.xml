@@ -67,10 +67,10 @@
         <activity android:name=".Activities.ListaActivity" />
         <activity android:name=".Activities.BuscaActivity" />
         <activity android:name=".Activities.EscolaActivity" />
-        <activity android:name=".Activities.MetodoActivity"></activity>
+        <activity android:name=".Activities.MetodoActivity"/>
         <activity android:name=".Activities.AuthActivities.EmailAuthActivity" />
         <activity android:name=".Activities.AuthActivities.GoogleAuthActivity" />
-        <activity android:name=".Activities.AuthActivities.FacebookAuthActivity"></activity>
+        <activity android:name=".Activities.AuthActivities.FacebookAuthActivity"/>
     </application>
 
 </manifest>

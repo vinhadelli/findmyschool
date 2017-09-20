@@ -7,7 +7,6 @@ package nathanelucas.findmyschool;
 import java.util.List;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import nathanelucas.findmyschool.Activities.EscolaActivity;
-import nathanelucas.findmyschool.Activities.ListaActivity;
 import nathanelucas.findmyschool.Resposta_API.Escola;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
