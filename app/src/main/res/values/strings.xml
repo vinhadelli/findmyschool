@@ -7,12 +7,12 @@
     <string name="password_confirm_hint">Confirm Password</string>
     <string name="image_login_description">Default image login</string>
     <string name="sign_in">Entrar com email</string>
-    <string name="sign_up">Criar Usuario com email</string>
     <string name="erro_create_email">Não foi possível criar novo usuário</string>
     <string name="invalid_email">Email invalido</string>
     <string name="invalid_password">Senha muito curta</string>
     <string name="user_not_found">Nao foi possivel logar com esse usuario</string>
     <string name="not_account">Não tem conta? Crie uma</string>
+    <string name="not_created">Ocorreu uma falha na criação</string>
     <!--coisas do facebook sdk-->
     <string name="facebook_app_id">115818592449584</string>
     <string name="fb_login_protocol_scheme">fb115818592449584</string>
