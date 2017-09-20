@@ -61,5 +61,6 @@
     <string name="metodo_text">Escolha o seu metodo de pesquisa!</string>
     <string name="lista_metodo_btn">Pesquise por Lista!</string>
     <string name="mapa_metodo_btn">Pesquise pela sua Localização!</string>
+    <string name="texto_raio">Digite o Raio que deseja buscar ao seu redor!</string>
 
 </resources>

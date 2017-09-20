@@ -22,6 +22,6 @@ public class MetodoActivity extends AppCompatActivity {
 
     public void passarParaMapa(View view)
     {
-        //startActivity(new Intent(MetodoActivity.this, MapaActivity.class));
+        startActivity(new Intent(MetodoActivity.this, RaioActivity.class));
     }
 }

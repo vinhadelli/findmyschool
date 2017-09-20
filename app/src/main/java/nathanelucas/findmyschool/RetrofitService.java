@@ -32,5 +32,5 @@ public interface RetrofitService {
     Call<List<Escola>> getAvaliacoes(@Path("codEscola") int codEscola);
 
     @GET ("rest/escolas/latitude/{latitude}/longitude/{longitude}/raio/{raio}")
-    Call<List<Escola>> getEscolasPorLocalizacao(@Path("latitude") float latitude, @Path("longitude") float longitude);
+    Call<List<Escola>> getEscolasPorLocalizacao(@Path("latitude") double latitude, @Path("longitude") double longitude, @Path("raio") float raio, @Query("quantidadeDeItens") int quantidadeDeItens);
 }

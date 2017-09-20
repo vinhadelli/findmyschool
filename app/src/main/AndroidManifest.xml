@@ -21,25 +21,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--login por facebook-->
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+        <!-- login por facebook -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
-        <activity android:name="com.facebook.FacebookActivity"
-            android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <!--fim-->
+        <!-- fim -->
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -66,10 +69,12 @@
         <activity android:name=".Activities.ListaActivity" />
         <activity android:name=".Activities.BuscaActivity" />
         <activity android:name=".Activities.EscolaActivity" />
-        <activity android:name=".Activities.MetodoActivity"></activity>
+        <activity android:name=".Activities.MetodoActivity" />
         <activity android:name=".Activities.AuthActivities.EmailAuthActivity" />
         <activity android:name=".Activities.AuthActivities.GoogleAuthActivity" />
-        <activity android:name=".Activities.AuthActivities.FacebookAuthActivity"></activity>
+        <activity android:name=".Activities.AuthActivities.FacebookAuthActivity" />
+        <activity android:name=".Activities.MapaActivity" />
+        <activity android:name=".Activities.RaioActivity"></activity>
     </application>
 
 </manifest>
