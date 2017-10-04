@@ -53,7 +53,8 @@ public class BuscaActivity extends AppCompatActivity implements AdapterView.OnIt
 
     public void buscarLista(View view)
     {
-        Intent i = new Intent(getApplicationContext(), ListaActivity.class);
+//        Intent i = new Intent(getApplicationContext(), ListaActivity.class);
+        Intent i = new Intent(this, ListaActivity.class);
         //this.nome_escola = nome_escola_field.getText().toString();
 
         if(crecheBox.isChecked())

@@ -29,8 +29,7 @@ public class EscolaActivity extends AppCompatActivity implements OnMapReadyCallb
 
 
         mMapFragment = MapFragment.newInstance();
-        FragmentTransaction fragmentTransaction =
-                getFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.mapview, mMapFragment);
         fragmentTransaction.commit();
 
@@ -68,11 +67,6 @@ public class EscolaActivity extends AppCompatActivity implements OnMapReadyCallb
         telefone_escola.setText("Telefone: " + telefone);
         categoria_escola.setText("Escola: " + categoria);
 
-        MapFragment mapFragment = (MapFragment) getFragmentManager()
-                .findFragmentById(R.id.mapview);
-        mapFragment.getMapAsync(this);
-
-
     }
 
     @Override
@@ -83,5 +77,14 @@ public class EscolaActivity extends AppCompatActivity implements OnMapReadyCallb
 
         mMap.addMarker(new MarkerOptions().position(escola).title(nome));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(escola,18));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        MapFragment mapFragment = (MapFragment) getFragmentManager()
+                .findFragmentById(R.id.mapview);
+        mapFragment.getMapAsync(this);
     }
 }

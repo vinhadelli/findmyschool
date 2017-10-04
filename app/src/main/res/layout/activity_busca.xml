@@ -35,7 +35,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_weight="0.3"
+            android:layout_weight="0.6"
             android:text="@string/busca_creche"
             android:textColor="@android:color/black"
             android:theme="@style/checkBoxStyle" />
@@ -53,7 +53,7 @@
             android:id="@+id/fundamentalBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.3"
+            android:layout_weight="0.2"
             android:text="@string/busca_fundamental"
             android:textColor="@android:color/black"
             android:theme="@style/checkBoxStyle" />
@@ -62,6 +62,7 @@
             android:id="@+id/medioBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="0.2"
             android:layout_marginEnd="10dp"
             android:text="@string/busca_medio"
             android:textColor="@android:color/black"
