@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool.Resposta_API;
+package nathanelucas.findmyschool.resposta_api;
 
 /**
  * Created by nathan.vinhadelli on 30/08/2017.
@@ -11,8 +11,8 @@ public class Escola{
     private String email;
     private Endereco endereco;
     private Infraestrutura infraestrutura;
-    private float latitude;
-    private float longitude;
+    private double latitude;
+    private double longitude;
     private String nome;
     private int qtdAlunos;
     private int qtdComputadores;
@@ -57,11 +57,11 @@ public class Escola{
 		this.infraestrutura = infraestrutura;
 	}
 
-	public void setLatitude(float latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
-	public void setLongitude(float longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
@@ -106,10 +106,10 @@ public class Escola{
     public String getTelefone(){return telefone;}
     public int getCodEscola(){return codEscola;}
     public int getQtdAlunos(){return qtdAlunos;}
-    public float getLatitude() {
+    public double getLatitude() {
 		return latitude;
 	}
-    public float getLongitude() {
+    public double getLongitude() {
 		return longitude;
 	}
     public int getQtdComputadores() {

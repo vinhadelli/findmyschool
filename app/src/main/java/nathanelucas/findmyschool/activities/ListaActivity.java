@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool.Activities;
+package nathanelucas.findmyschool.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +17,7 @@ import java.util.Objects;
 
 import nathanelucas.findmyschool.MyAdapter;
 import nathanelucas.findmyschool.R;
-import nathanelucas.findmyschool.Resposta_API.Escola;
+import nathanelucas.findmyschool.resposta_api.Escola;
 import nathanelucas.findmyschool.RetrofitService;
 import retrofit2.Call;
 import retrofit2.Retrofit;

@@ -2,7 +2,7 @@ package nathanelucas.findmyschool;
 
 import java.util.List;
 
-import nathanelucas.findmyschool.Resposta_API.Escola;
+import nathanelucas.findmyschool.resposta_api.Escola;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -32,5 +32,5 @@ public interface RetrofitService {
     Call<List<Escola>> getAvaliacoes(@Path("codEscola") int codEscola);
 
     @GET ("rest/escolas/latitude/{latitude}/longitude/{longitude}/raio/{raio}")
-    Call<List<Escola>> getEscolasPorLocalizacao(@Path("latitude") float latitude, @Path("longitude") float longitude);
+    Call<List<Escola>> getEscolasPorLocalizacao(@Path("latitude") double latitude, @Path("longitude") double longitude, @Path("raio") float raio);
 }

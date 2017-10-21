@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool.Resposta_API;
+package nathanelucas.findmyschool.resposta_api;
 
 /**
  * Created by nathan.vinhadelli on 04/09/2017.

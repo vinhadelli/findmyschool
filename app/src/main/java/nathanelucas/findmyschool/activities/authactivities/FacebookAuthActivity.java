@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool.Activities.AuthActivities;
+package nathanelucas.findmyschool.activities.authactivities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -21,7 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Arrays;
 
-import nathanelucas.findmyschool.Activities.BuscaActivity;
+import nathanelucas.findmyschool.R;
+import nathanelucas.findmyschool.activities.BuscaActivity;
+import nathanelucas.findmyschool.activities.MetodoActivity;
 
 public class FacebookAuthActivity extends AppCompatActivity {
 
@@ -51,7 +53,7 @@ public class FacebookAuthActivity extends AppCompatActivity {
 
                     @Override
                     public void onError(FacebookException exception) {
-                        Toast.makeText(FacebookAuthActivity.this, "@string/error_facebook", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FacebookAuthActivity.this, R.string.fail_auth, Toast.LENGTH_SHORT).show();
                         finish();
 
                     }
@@ -76,10 +78,10 @@ public class FacebookAuthActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(FacebookAuthActivity.this, BuscaActivity.class));
+                            startActivity(new Intent(FacebookAuthActivity.this, MetodoActivity.class));
                             finish();
                         } else {
-                            Toast.makeText(FacebookAuthActivity.this, "@string/falha_na_autenticacao", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FacebookAuthActivity.this, R.string.fail_auth, Toast.LENGTH_SHORT).show();
                             finish();
                         }
 

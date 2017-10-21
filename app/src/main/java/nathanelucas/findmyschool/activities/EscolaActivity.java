@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool.Activities;
+package nathanelucas.findmyschool.activities;
 
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;

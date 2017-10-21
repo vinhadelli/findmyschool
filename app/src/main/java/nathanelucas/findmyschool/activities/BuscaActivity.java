@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool.Activities;
+package nathanelucas.findmyschool.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -80,13 +80,6 @@ public class BuscaActivity extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
-
-    public void logOut(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(this, LoginActivity.class));
-        finish();
 
     }
 }

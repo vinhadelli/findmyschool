@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool.Activities.AuthActivities;
+package nathanelucas.findmyschool.activities.authactivities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -13,8 +13,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import nathanelucas.findmyschool.Activities.BuscaActivity;
+import nathanelucas.findmyschool.activities.BuscaActivity;
 import nathanelucas.findmyschool.R;
+import nathanelucas.findmyschool.activities.MetodoActivity;
 
 public class EmailAuthActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -36,14 +37,14 @@ public class EmailAuthActivity extends AppCompatActivity implements View.OnClick
         String password = passwordField.getText().toString();
 
         if(!(email.contains("@") && email.endsWith(".com"))){
-            Toast.makeText(this, "@string/invalid_email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.invalide_email, Toast.LENGTH_SHORT).show();
             emailField.setText("");
             passwordField.setText("");
             return;
         }
 
         if (password.length() < 6){
-            Toast.makeText(this, "@string/invalid_password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.invalide_password, Toast.LENGTH_SHORT).show();
             emailField.setText("");
             passwordField.setText("");
             return;
@@ -54,9 +55,9 @@ public class EmailAuthActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(EmailAuthActivity.this, BuscaActivity.class));
+                            startActivity(new Intent(EmailAuthActivity.this, MetodoActivity.class));
                         } else {
-                            Toast.makeText(EmailAuthActivity.this, "@string/not_created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EmailAuthActivity.this, R.string.fail_creation, Toast.LENGTH_SHORT).show();
                         }
 
                     }

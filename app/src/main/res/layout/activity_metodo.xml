@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="nathanelucas.findmyschool.Activities.MetodoActivity">
+    tools:context="nathanelucas.findmyschool.activities.MetodoActivity">
 
     <TextView
         android:id="@+id/escolha_metodo"

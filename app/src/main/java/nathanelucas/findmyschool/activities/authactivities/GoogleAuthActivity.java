@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool.Activities.AuthActivities;
+package nathanelucas.findmyschool.activities.authactivities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -19,8 +19,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import nathanelucas.findmyschool.Activities.BuscaActivity;
+import nathanelucas.findmyschool.activities.BuscaActivity;
 import nathanelucas.findmyschool.R;
+import nathanelucas.findmyschool.activities.MetodoActivity;
 
 public class GoogleAuthActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
 
@@ -57,7 +58,7 @@ public class GoogleAuthActivity extends AppCompatActivity implements GoogleApiCl
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else {
-                Toast.makeText(this, "@string/falha_na_autenticacao", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.fail_auth, Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -70,10 +71,10 @@ public class GoogleAuthActivity extends AppCompatActivity implements GoogleApiCl
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(GoogleAuthActivity.this, BuscaActivity.class));
+                            startActivity(new Intent(GoogleAuthActivity.this, MetodoActivity.class));
                             finish();
                         } else {
-                            Toast.makeText(GoogleAuthActivity.this, "@string/falha_autenticacao", Toast.LENGTH_LONG).show();
+                            Toast.makeText(GoogleAuthActivity.this, R.string.fail_auth, Toast.LENGTH_LONG).show();
                             finish();
                         }
                     }

@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool.Activities;
+package nathanelucas.findmyschool.activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -14,7 +14,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import nathanelucas.findmyschool.Activities.AuthActivities.*;
+import nathanelucas.findmyschool.activities.authactivities.*;
 import nathanelucas.findmyschool.R;
 
 
@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser != null){
-            startActivity(new Intent(this, BuscaActivity.class));
+            startActivity(new Intent(this, MetodoActivity.class));
         }
 
     }
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            startActivity(new Intent(LoginActivity.this, BuscaActivity.class));
+                            startActivity(new Intent(LoginActivity.this, MetodoActivity.class));
                         } else {
                             Toast.makeText(LoginActivity.this, "@string/user_not_found", Toast.LENGTH_SHORT).show();
                         }

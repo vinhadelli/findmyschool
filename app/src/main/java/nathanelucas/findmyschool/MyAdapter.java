@@ -14,8 +14,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import nathanelucas.findmyschool.Activities.EscolaActivity;
-import nathanelucas.findmyschool.Resposta_API.Escola;
+import nathanelucas.findmyschool.activities.EscolaActivity;
+import nathanelucas.findmyschool.resposta_api.Escola;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Escola> escolas;

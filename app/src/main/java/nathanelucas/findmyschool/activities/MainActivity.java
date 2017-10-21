@@ -1,4 +1,4 @@
-package nathanelucas.findmyschool.Activities;
+package nathanelucas.findmyschool.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
