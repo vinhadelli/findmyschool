@@ -6,29 +6,76 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- To get information from the API via Retrofit -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icon_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- login por facebook -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
         <activity
-            android:name=".MainActivity"
-            android:noHistory="true">
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+        <!-- fim -->
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MenuActivity" />
-        <activity
-            android:name=".MenuTesteActivity"
-            android:label="@string/title_activity_menu_teste"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activities.LoginActivity" />
+
+        <!-- Pra que este service mano?? -->
+        <!-- <service -->
+        <!-- android:name=".RetrofitService" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true" /> -->
+
+        <activity android:name=".activities.ListaActivity" />
+        <activity android:name=".activities.BuscaActivity" />
+        <activity android:name=".activities.EscolaActivity" />
+        <activity android:name=".activities.MetodoActivity" />
+        <activity android:name=".activities.authactivities.EmailAuthActivity" />
+        <activity android:name=".activities.authactivities.GoogleAuthActivity" />
+        <activity android:name=".activities.authactivities.FacebookAuthActivity" />
+        <activity android:name=".activities.BigMapActivity"></activity>
     </application>
 
 </manifest>

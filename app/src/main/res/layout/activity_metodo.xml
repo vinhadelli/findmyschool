@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="nathanelucas.findmyschool.activities.MetodoActivity">
+
+    <TextView
+        android:id="@+id/escolha_metodo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:text="@string/metodo_text"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/lista_metodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="@string/lista_metodo_btn"
+        android:onClick="passarParaLista"/>
+
+    <Button
+        android:id="@+id/mapa_metodo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="@string/mapa_metodo_btn"
+        android:onClick="passarParaMapa"/>
+</LinearLayout>

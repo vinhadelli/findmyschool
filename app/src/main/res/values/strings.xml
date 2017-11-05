@@ -4,13 +4,56 @@
     <!--Login activity-->
     <string name="email_input_hint">Email</string>
     <string name="password_input_hint">Password</string>
-    <!--Menu Activity-->
-    <string name="school_search_hint">Minha Escola</string>
-    <string name="email">emaildeteste@nathanelucas.com</string>
-    <string name="title_activity_menu_teste">MenuTesteActivity</string>
+    <string name="image_login_description">Default image login</string>
+    <string name="not_account">Não tem conta? Crie uma</string>
+    <!--coisas do facebook sdk-->
+    <string name="facebook_app_id">115818592449584</string>
+    <string name="fb_login_protocol_scheme">fb115818592449584</string>
+    <!--mensagens autenticacao-->
+    <string name="invalide_email">Email inválido</string>
+    <string name="invalide_password">Senha inválida</string>
+    <string name="fail_creation">Ocorreu uma falha, tente novamente</string>
+    <string name="fail_auth">Falha na autenticação</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!--User Information-->
 
-    <string name="action_settings">Settings</string>
+    <!--Geral-->
+    <string-array name="estados_brasil">
+        <item>AL</item>
+        <item>AP</item>
+        <item>AM</item>
+        <item>BA</item>
+        <item>CE</item>
+        <item>DF</item>
+        <item>ES</item>
+        <item>GO</item>
+        <item>MA</item>
+        <item>MT</item>
+        <item>MS</item>
+        <item>MG</item>
+        <item>PA</item>
+        <item>PB</item>
+        <item>PR</item>
+        <item>PE</item>
+        <item>PI</item>
+        <item>RJ</item>
+        <item>RN</item>
+        <item>RS</item>
+        <item>RO</item>
+        <item>RR</item>
+        <item>SC</item>
+        <item>SP</item>
+        <item>SE</item>
+        <item>TO</item>
+    </string-array>
+    <string name="busca_escola">Procure sua Escola!</string>
+    <string name="busca_estado">Selecione um Estado:</string>
+    <string name="busca_creche">Creche</string>
+    <string name="busca_fundamental">En. Fundamental</string>
+    <string name="busca_medio">Ensino Médio</string>
+    <string name="busca_btn">Buscar</string>
+    <string name="metodo_text">Escolha o seu metodo de pesquisa!</string>
+    <string name="lista_metodo_btn">Pesquise por Lista!</string>
+    <string name="mapa_metodo_btn">Pesquise pela sua Localização!</string>
+
 </resources>

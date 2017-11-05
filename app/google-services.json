@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "538726286775",
+    "firebase_url": "https://findmyschool-d2896.firebaseio.com",
+    "project_id": "findmyschool-d2896",
+    "storage_bucket": "findmyschool-d2896.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538726286775:android:e921fb9936913e5d",
+        "android_client_info": {
+          "package_name": "nathanelucas.findmyschool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538726286775-6go99jcg5ml64hg04ca07sd3tupqbpsl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nathanelucas.findmyschool",
+            "certificate_hash": "e829d5768714691877f50e314a5580ad6927f77e"
+          }
+        },
+        {
+          "client_id": "538726286775-ag7tdqh1ruhpdbrbjdat7cmii9otr4g4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nathanelucas.findmyschool",
+            "certificate_hash": "6c5fa80c0107aacf79dd8c3d3e24ac9ee6a45494"
+          }
+        },
+        {
+          "client_id": "538726286775-rjuqv1dcnq0o4umhbhiovlq00srdpqo3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDTDoZjCUcbVs5g4f3MNbm_974bbD1-nI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538726286775-rjuqv1dcnq0o4umhbhiovlq00srdpqo3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
