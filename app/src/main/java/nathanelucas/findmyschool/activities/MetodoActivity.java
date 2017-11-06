@@ -7,20 +7,26 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import nathanelucas.findmyschool.R;
 
 public class MetodoActivity extends AppCompatActivity {
 
-    public static final int MAP_PERMISSION_ACCESS_COURSE_LOCATION = 9999;
-    public static final int MAP_PERMISSION_STORAGE = 8888;
+    public static final int MAP_PERMISSIONS = 9999;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_metodo);
+
+
     }
 
     @Override
@@ -63,14 +69,14 @@ public class MetodoActivity extends AppCompatActivity {
 
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    MAP_PERMISSION_ACCESS_COURSE_LOCATION);
+                    MAP_PERMISSIONS);
 
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
-            case MAP_PERMISSION_ACCESS_COURSE_LOCATION: {
+            case MAP_PERMISSIONS: {
                 if (grantResults.length > 0) {
 
                     for(int grantResult : grantResults){
@@ -83,5 +89,22 @@ public class MetodoActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.activity_metodo_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
+
+        return super.onOptionsItemSelected(item);
     }
 }

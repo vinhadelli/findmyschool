@@ -14,6 +14,8 @@
     <string name="invalide_password">Senha inválida</string>
     <string name="fail_creation">Ocorreu uma falha, tente novamente</string>
     <string name="fail_auth">Falha na autenticação</string>
+    <!--menu app bar-->
+    <string name="logout">LogOut</string>
 
     <!--User Information-->
 

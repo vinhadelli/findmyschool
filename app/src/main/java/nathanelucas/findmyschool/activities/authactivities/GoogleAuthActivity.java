@@ -59,6 +59,7 @@ public class GoogleAuthActivity extends AppCompatActivity implements GoogleApiCl
                 firebaseAuthWithGoogle(account);
             } else {
                 Toast.makeText(this, R.string.fail_auth, Toast.LENGTH_LONG).show();
+                finish();
             }
         }
     }
