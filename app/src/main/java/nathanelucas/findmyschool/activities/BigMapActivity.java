@@ -86,8 +86,6 @@ public class BigMapActivity extends AppCompatActivity implements OnMapReadyCallb
 
     private void pointUserOnMap(){
 
-        locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
                 && ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 

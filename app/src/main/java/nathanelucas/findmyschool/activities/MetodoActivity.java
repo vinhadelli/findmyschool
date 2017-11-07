@@ -1,10 +1,15 @@
 package nathanelucas.findmyschool.activities;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +25,7 @@ import nathanelucas.findmyschool.R;
 public class MetodoActivity extends AppCompatActivity {
 
     public static final int MAP_PERMISSIONS = 9999;
+    private final Context mContext= this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,21 +41,15 @@ public class MetodoActivity extends AppCompatActivity {
 
     }
 
-    public void passarParaLista(View view)
-    {
+    public void passarParaLista(View view) {
         startActivity(new Intent(MetodoActivity.this, BuscaActivity.class));
     }
 
-    public void passarParaMapa(View view)
-    {
+    public void passarParaMapa(View view) {
 
-        if (checkPermissions()) {
+        if (checkPermissions() && checkGps()) {
 
             startActivity(new Intent(this, BigMapActivity.class));
-        }
-        else{
-
-            askPermissions();
         }
 
     }
@@ -60,12 +60,41 @@ public class MetodoActivity extends AppCompatActivity {
                 || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
                 || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
+            askPermissions();
             return false;
         }
         return true;
     }
 
-    public void askPermissions(){
+    private boolean checkGps(){
+
+        LocationManager locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
+
+        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+            return true;
+        }
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        final String action = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
+        final String message = "Habilite o GPS para utilizar essa função";
+
+        builder.setMessage(message).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface d, int id) {
+                mContext.startActivity(new Intent(action));
+                d.dismiss();
+            }
+        }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface d, int id) {
+                d.cancel();
+            }
+        });
+        builder.create().show();
+
+        return false;
+    }
+
+    private void askPermissions(){
 
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
