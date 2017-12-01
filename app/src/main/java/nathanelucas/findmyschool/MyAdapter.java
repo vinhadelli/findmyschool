@@ -107,6 +107,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         i.putExtra("categoria", escolas.get(position).getCategoriaEscolaPrivada());
         i.putExtra("lati",escolas.get(position).getLatitude());
         i.putExtra("longi",escolas.get(position).getLongitude());
+        i.putExtra("codEscola", escolas.get(position).getCodEscola());
         view.getContext().startActivity(i);
     }
 

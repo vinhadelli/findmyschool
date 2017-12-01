@@ -71,6 +71,7 @@ public class BigMapActivity extends AppCompatActivity implements OnMapReadyCallb
                 intent.putExtra("categoria", school.getCategoriaEscolaPrivada());
                 intent.putExtra("lati",school.getLatitude());
                 intent.putExtra("longi",school.getLongitude());
+                intent.putExtra("codEscola", school.getCodEscola());
 
                 startActivity(intent);
 

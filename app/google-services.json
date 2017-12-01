@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "538726286775-95ql68j0g8mm8i8j3p177qtjcu27r5um.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nathanelucas.findmyschool",
+            "certificate_hash": "5bc04b732b7d2985878d2d840d8d7eab946a6efa"
+          }
+        },
+        {
+          "client_id": "538726286775-g2hlianjr57or85v8euv24tlhgd3ro5n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "nathanelucas.findmyschool",
+            "certificate_hash": "45285361522bab3ac4eb591cce689d7ee925ed7f"
+          }
+        },
+        {
           "client_id": "538726286775-6go99jcg5ml64hg04ca07sd3tupqbpsl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

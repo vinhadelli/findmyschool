@@ -14,7 +14,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_launcher"
@@ -75,7 +74,8 @@
         <activity android:name=".activities.authactivities.EmailAuthActivity" />
         <activity android:name=".activities.authactivities.GoogleAuthActivity" />
         <activity android:name=".activities.authactivities.FacebookAuthActivity" />
-        <activity android:name=".activities.BigMapActivity"></activity>
+        <activity android:name=".activities.BigMapActivity" />
+        <activity android:name=".activities.EscolaCommentsActivity"></activity>
     </application>
 
 </manifest>

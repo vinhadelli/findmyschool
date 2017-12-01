@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
-        android:textSize="25sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/bairro_escola"
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/categoria_escola"
@@ -63,14 +63,30 @@
         android:layout_marginStart="10dp"
         android:textSize="20sp" />
 
+    <!--<TextView-->
+        <!--android:id="@+id/localizacao_text"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginEnd="10dp"-->
+        <!--android:layout_marginStart="10dp"-->
+        <!--android:text="Localização:"-->
+        <!--android:textSize="20sp" />-->
+
+
     <TextView
-        android:id="@+id/localizacao_text"
+        android:id="@+id/nota_escola"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
-        android:text="Localização:"
-        android:textSize="20sp" />
+        android:textSize="17sp"/>
+
+    <Button
+        android:id="@+id/CommentBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comentários"
+        android:onClick="startComments"/>
 
     <fragment
         android:name="com.google.android.gms.maps.MapFragment"
